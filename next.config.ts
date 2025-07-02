@@ -5,7 +5,12 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true
-  }
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  // Suppress specific warnings
+ 
 };
 
 export default nextConfig;

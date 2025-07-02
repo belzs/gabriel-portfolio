@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { Timeline } from "@/components/ui/timeline";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { IconTools } from "@tabler/icons-react";
@@ -122,7 +121,7 @@ const AloreTimeline = ({ data }: { data: any[] }) => {
           return (
             <div
               key={index}
-              className="flex justify-start pt-10 md:pt-20 md:gap-22"
+              className="flex justify-start pt-10 md:pt-20 md:gap-22 overflow-x-clip"
             >
               <div className={`sticky flex flex-col md:flex-row z-40 items-start top-40 self-start max-w-xs lg:max-w-[430px] md:w-full transition-all duration-1000 ${
                 timelineSection.inView 

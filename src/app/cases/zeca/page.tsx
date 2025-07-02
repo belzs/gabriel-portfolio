@@ -69,7 +69,7 @@ const ZecaTimeline = ({ data }: { data: any[] }) => {
       className="w-full bg-gray-50 dark:bg-neutral-950 font-sans"
       ref={containerRef}
     >
-      <div className="max-w-[900px] mx-auto pt-20 pb-4 px-4">
+      <div className="max-w-[900px] mx-auto pt-20 pb-4 px-4 overflow-x-hidden">
         <div className="">
           <div 
             ref={heroSection.ref}
@@ -123,7 +123,7 @@ const ZecaTimeline = ({ data }: { data: any[] }) => {
           return (
             <div
               key={index}
-              className="flex justify-start pt-10 md:pt-20 md:gap-22"
+              className="flex justify-start pt-10 md:pt-20 md:gap-22 overflow-x-clip"
             >
               <div className={`sticky flex flex-col md:flex-row z-40 items-start top-40 self-start max-w-xs lg:max-w-[430px] md:w-full transition-all duration-1000 ${
                 timelineSection.inView 
@@ -161,13 +161,13 @@ const ZecaTimeline = ({ data }: { data: any[] }) => {
 
               <div 
                 ref={timelineSection.ref}
-                className={`flex max-w-[870px] w-full justify-center ${item.title === t('netzProductTitle', language) ? "bg-strong-gray" : "bg-white"} pb-12 transition-all duration-1000 delay-300 ${
+                className={`flex max-w-[870px] w-full justify-center ${item.title === t('netzProductTitle', language) ? "bg-strong-gray" : "bg-white"} pb-12 transition-all duration-1000 delay-300 overflow-x-hidden ${
                     timelineSection.inView 
                       ? 'opacity-100 translate-x-0' 
                       : 'opacity-0 translate-x-8'
                   }`}
               >
-                <div className="max-w-[750px] w-full px-6">
+                <div className="max-w-[750px] w-full px-6 overflow-x-hidden">
                   <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
                     {item.title}
                   </h3>
@@ -374,7 +374,7 @@ const ZecaTimelineComponent = () => {
       processSteps: [],
       content: (
         <div className="space-y-6">
-          <div className="w-full mt-12">
+          <div className="w-[95%] mt-12">
             <img 
               src="/cases/zeca/zecaPrimaryMockup.png" 
               alt="Zeca Primary Mockup" 
