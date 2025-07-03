@@ -84,10 +84,10 @@ export function ExperienceSection() {
         {/* Title and Image Row */}
         <div 
           ref={titleRef}
-          className={`flex items-center justify-between gap-8 mb-24 ${getAnimationClass('title')}`}
+          className={`flex flex-col lg:flex-row items-start lg:justify-between gap-6 lg:gap-8 mb-12 md:mb-16 ${getAnimationClass('title')}`}
         >
           <div className="flex-1">
-            <h2 className="text-6xl uppercase font-bold font-kanit leading-snug">
+            <h2 className="text-3xl md:text-4xl lg:text-6xl uppercase font-bold font-kanit leading-snug">
               <span className="text-strong-gray">{t('experienceTitle1', language)}</span>
               <br />
               <span className="text-strong-gray">& </span>
@@ -96,7 +96,7 @@ export function ExperienceSection() {
           </div>
           <div className="flex-shrink-0">
             <div className="">
-              <p className="text-sm leading-relaxed text-gray-500 max-w-64 text-justify italic font-light">
+              <p className="text-sm leading-relaxed text-gray-500 sm:max-w-64 text-justify italic font-light">
                 {t('personalHobbies', language)}
               </p>
             </div>

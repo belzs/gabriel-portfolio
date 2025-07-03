@@ -72,60 +72,60 @@ export function ConquerSection() {
   ]
 
   return (
-    <section className="w-full py-24 bg-white">
-      <div className="max-w-[900px] mx-auto px-6">
+    <section className="w-full py-12 md:py-24 bg-white">
+      <div className="max-w-[900px] mx-auto px-4 md:px-6">
         
-        {/* Company Title and Process Steps - Reversed Layout */}
+        {/* Company Title and Process Steps - Responsive Layout */}
         <div 
           ref={companyTitleRef}
-          className={`flex items-center justify-between gap-8 mb-28 ${getAnimationClass('company', 400)}`}
+          className={`flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-8 mb-16 md:mb-28 ${getAnimationClass('company', 400)}`}
         >
-          {/* Process Steps on the Left */}
-          <div className="flex gap-4">
+          {/* Title and Subtitle - Mobile First */}
+          <div className="flex-1 text-left md:text-right md:order-2">
+            <div 
+              ref={subtitleRef}
+              className={`mb-3 md:mb-4 ${getAnimationClass('subtitle', 200)}`}
+            >
+              <p className="text-xs md:text-sm text-gray-600 uppercase tracking-[0.2em] md:tracking-[0.3em] font-light">
+                SOFT SKILLS TRAINING STARTUP
+              </p>
+            </div>
+            <h3 className="text-2xl md:text-4xl font-extrabold text-strong-gray font-kanit">
+              CONQUER
+            </h3>
+          </div>
+
+          {/* Process Steps - Mobile: Below title, Desktop: Left side */}
+          <div className="flex justify-start md:justify-start gap-2 md:gap-4 md:order-1">
             {processSteps.map((step, index) => {
               const IconComponent = step.icon
               return (
                 <div 
                   key={index}
-                  className="flex flex-col gap-2 p-3 border border-gray-200 min-w-[80px]"
+                  className="flex flex-col gap-1 md:gap-2 p-2 md:p-3 border border-gray-200 min-w-[60px] md:min-w-[80px]"
                 >
-                  <IconComponent strokeWidth={1} className="w-7 h-7 text-gray-600" />
-                  <span className="text-xs text-gray-600 text-center font-light">
+                  <IconComponent strokeWidth={1} className="w-5 h-5 md:w-7 md:h-7 text-gray-600 mx-auto" />
+                  <span className="text-[10px] md:text-xs text-gray-600 text-center font-light">
                     {step.text}
                   </span>
                 </div>
               )
             })}
           </div>
-
-          {/* Title and Subtitle on the Right */}
-          <div className="flex-1 text-right">
-            <div 
-              ref={subtitleRef}
-              className={`mb-4 ${getAnimationClass('subtitle', 200)}`}
-            >
-              <p className="text-sm text-gray-600 uppercase tracking-[0.3em] font-light">
-                SOFT SKILLS TRAINING STARTUP
-              </p>
-            </div>
-            <h3 className="text-4xl font-extrabold text-strong-gray font-kanit">
-              CONQUER
-            </h3>
-          </div>
         </div>
 
         {/* Full Width Mockup Container */}
         <div className="relative">
-          {/* Mobile Mockup positioned outside overflow container */}
+          {/* Mobile Mockup positioned outside overflow container - Hidden on mobile */}
           <div 
-            className="absolute top-0 right-0 h-full flex items-center z-20"
+            className="hidden lg:block absolute top-0 right-0 h-full flex items-center z-20"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
             <img 
               src="/conquerMobileMockup.png"  
               alt="Conquer Mobile Mockup" 
-              className={`h-auto max-h-[500px] object-contain transition-all duration-500  ${
+              className={`h-auto max-h-[400px] lg:max-h-[500px] object-contain transition-all duration-500  ${
                 isHovered ? '' : 'filter grayscale'
               }`}
             />
@@ -133,7 +133,7 @@ export function ConquerSection() {
           
           <div 
             ref={mockupRef}
-            className={`border-[19px] border-white relative shadow-xl hover:shadow-2xl transition-all  duration-500 overflow-hidden group relative max-h-[450px] ${getAnimationClass('mockup', 600)}`}
+            className={`border-[8px] md:border-[19px] border-white relative shadow-lg md:shadow-xl hover:shadow-xl md:hover:shadow-2xl transition-all duration-500 overflow-hidden group max-h-[300px] md:max-h-[450px] ${getAnimationClass('mockup', 600)}`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
@@ -155,11 +155,11 @@ export function ConquerSection() {
                 alt="Conquer App Mockup" 
                 className={`w-full object-cover transition-all duration-7000 ease-out ${
                   isHovered 
-                    ? 'transform -translate-y-190' 
+                    ? 'transform -translate-y-32 md:-translate-y-190' 
                     : 'transform translate-y-0 filter grayscale'
                 }`}
                 style={{
-                  minHeight: '400px'
+                  minHeight: '250px'
                 }}
               />
             </div>

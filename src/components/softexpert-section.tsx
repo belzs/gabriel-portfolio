@@ -71,40 +71,40 @@ export function SoftexpertSection() {
   ]
 
   return (
-    <section className="w-full py-24 ">
-      <div className="max-w-[900px] mx-auto px-6">
+    <section className="w-full py-12 md:py-16 lg:py-24">
+      <div className="max-w-[900px] mx-auto px-4 sm:px-6">
         
-        {/* Company Title and Process Steps - Titles on Left */}
+        {/* Company Title and Process Steps - Responsive Layout */}
         <div 
           ref={companyTitleRef}
-          className={`flex items-center justify-between gap-8 mb-18 ${getAnimationClass('company', 400)}`}
+          className={`flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-8 mb-12 md:mb-18 ${getAnimationClass('company', 400)}`}
         >
           {/* Title and Subtitle on the Left */}
           <div className="flex-1 text-left">
             <div 
               ref={subtitleRef}
-              className={`mb-4 ${getAnimationClass('subtitle', 200)}`}
+              className={`mb-2 md:mb-4 ${getAnimationClass('subtitle', 200)}`}
             >
-              <p className="text-sm text-gray-600 uppercase tracking-[0.3em] font-light">
+              <p className="text-xs sm:text-sm text-gray-600 uppercase tracking-[0.2em] sm:tracking-[0.3em] font-light">
                 BIG ERP TECH COMPANY
               </p>
             </div>
-            <h3 className="text-4xl font-extrabold text-strong-gray font-kanit">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-strong-gray font-kanit">
               SOFTEXPERT
             </h3>
           </div>
 
-          {/* Process Steps on the Right */}
-          <div className="flex gap-4">
+          {/* Process Steps - Responsive Layout */}
+          <div className="flex gap-2 sm:gap-3 md:gap-4 self-start md:self-auto">
             {processSteps.map((step, index) => {
               const IconComponent = step.icon
               return (
                 <div 
                   key={index}
-                  className="flex flex-col gap-2 p-3 border border-gray-300 min-w-[80px]"
+                  className="flex flex-col gap-1 sm:gap-2 p-2 sm:p-3 border border-gray-300 min-w-[60px] sm:min-w-[70px] md:min-w-[80px]"
                 >
-                  <IconComponent strokeWidth={1} className="w-7 h-7 text-gray-600" />
-                  <span className="text-xs text-gray-600 text-center font-light">
+                  <IconComponent strokeWidth={1} className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-gray-600" />
+                  <span className="text-[10px] sm:text-xs text-gray-600 text-center font-light">
                     {step.text}
                   </span>
                 </div>
@@ -113,18 +113,18 @@ export function SoftexpertSection() {
           </div>
         </div>
 
-        {/* Mockup Container - Simple without mobile mockup or scrolling */}
+        {/* Mockup Container - Responsive */}
         <div className="relative">
           <div 
             ref={mockupRef}
-            className={`border-[19px] border-white relative shadow-xl hover:shadow-2xl transition-all  duration-500 overflow-hidden group ${getAnimationClass('mockup', 600)}`}
+            className={`border-[8px] sm:border-[12px] md:border-[16px] lg:border-[19px] border-white relative shadow-lg sm:shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden group ${getAnimationClass('mockup', 600)}`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
             <img 
               src="/softexpertMockup.png" 
               alt="SoftExpert Application Mockup" 
-              className={`w-full object-cover transition-all duration-500 ${
+              className={`w-full h-auto object-cover transition-all duration-500 ${
                 isHovered ? '' : 'filter grayscale'
               }`}
             />

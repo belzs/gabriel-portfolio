@@ -68,22 +68,22 @@ export function NautixSection() {
   }
 
   return (
-    <section className="w-full py-24 bg-white">
-      <div className="max-w-[900px] mx-auto px-6">
+    <section className="w-full py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
+      <div className="max-w-[900px] mx-auto px-4 sm:px-6">
         
-        {/* Half screen layout - Text on left, Image on right */}
+        {/* Responsive layout - Stacked on mobile, side by side on desktop */}
         <div 
           ref={contentRef}
-          className={`grid grid-cols-2 gap-12 items-center ${getAnimationClass('content')}`}
+          className={`grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center ${getAnimationClass('content')}`}
         >
-          {/* Left side - Content */}
-          <div className="flex flex-col">
+          {/* Content */}
+          <div className="flex flex-col text-left">
             {/* Subtitle */}
             <div 
               ref={subtitleRef}
-              className={`mb-4 ${getAnimationClass('subtitle', 200)}`}
+              className={`mb-3 sm:mb-4 ${getAnimationClass('subtitle', 200)}`}
             >
-              <p className="text-sm text-gray-600 uppercase tracking-[0.3em] font-light">
+              <p className="text-xs sm:text-sm text-gray-600 uppercase tracking-[0.3em] font-light">
                 {t('personalProject', language)}
               </p>
             </div>
@@ -91,15 +91,15 @@ export function NautixSection() {
             {/* Title with Heart Icon */}
             <div 
               ref={titleRef}
-              className={`mb-8 ${getAnimationClass('title', 400)}`}
+              className={`mb-6 sm:mb-8 ${getAnimationClass('title', 400)}`}
             >
-              <div className="flex items-center gap-4 mb-2">
-                <TbHeart strokeWidth={1.5} className="w-22 h-22 text-gray-600" />
+              <div className="flex items-center justify-start gap-3 sm:gap-4 mb-2">
+                <TbHeart strokeWidth={1.5} className="w-16 h-16 sm:w-20 sm:h-20 md:w-22 md:h-22 text-gray-600 flex-shrink-0" />
                 <div>
-                  <h3 className="text-4xl font-extrabold text-strong-gray font-kanit leading-tight">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-strong-gray font-kanit leading-tight">
                     {t('nautixTitle1', language)}
                   </h3>
-                  <h3 className="text-4xl font-extrabold text-strong-gray font-kanit leading-tight">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-strong-gray font-kanit leading-tight">
                     {t('nautixTitle2', language)}
                   </h3>
                 </div>
@@ -108,13 +108,13 @@ export function NautixSection() {
 
             {/* Description */}
             <div className="space-y-4 text-gray-600 leading-relaxed font-light text-justify">
-              <p>
+              <p className="text-sm sm:text-base">
                 {t('nautixDescription', language)}
               </p>
             </div>
           </div>
 
-          {/* Right side - Mobile Mockup */}
+          {/* Mobile Mockup */}
           <div 
             ref={mockupRef}
             className={`flex items-center justify-center ${getAnimationClass('mockup', 600, 'right')}`}
@@ -124,7 +124,7 @@ export function NautixSection() {
             <img 
               src="/nautixMobileMockup.png" 
               alt="Nautix Mobile Application Mockup" 
-              className={`h-auto max-h-[500px] object-contain hover:scale-100 transition-all duration-500 ${
+              className={`h-auto w-full max-w-[300px] sm:max-w-[350px] md:max-w-none md:max-h-[500px] object-contain hover:scale-100 transition-all duration-500 ${
                 isHovered ? '' : 'filter grayscale'
               }`}
             />

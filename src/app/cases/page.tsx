@@ -107,20 +107,20 @@ export default function CasesPage() {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       
-      <section className="w-full pt-32 pb-24">
-        <div className="max-w-[1000px] mx-auto px-6">
+      <section className="w-full pt-20 sm:pt-32 pb-16 sm:pb-24">
+        <div className="max-w-[1000px] mx-auto px-4 sm:px-6">
           {/* Page Title */}
           <div 
             ref={titleRef}
-            className={`text-start mb-16 ${getAnimationClass('title')}`}
+            className={`text-start mb-8 sm:mb-16 ${getAnimationClass('title')}`}
           >
-            <h1 className="text-6xl uppercase font-extrabold font-kanit leading-snug text-strong-gray">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase font-extrabold font-kanit leading-snug text-strong-gray">
               {t('casesPageTitle', language)}
             </h1>
           </div>
 
           {/* Cases Grid */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {caseData.map((caseItem, index) => (
               <Link
                 key={index}
@@ -131,27 +131,27 @@ export default function CasesPage() {
               >
                 <div
                   ref={caseItem.ref}
-                  className={`group w-full max-h-[200px] bg-white shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer ${getAnimationClass(caseItem.id, index * 200)}`}
+                  className={`group w-full bg-white shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer ${getAnimationClass(caseItem.id, index * 200)}`}
                 >
-                  <div className="flex h-full">
-                    {/* Left side - Text content (1/3 width) */}
-                    <div className="w-1/3 flex flex-col justify-center items-start p-8 bg-white relative">
+                  <div className="flex flex-col sm:flex-row h-full min-h-[200px] sm:max-h-[200px]">
+                    {/* Text content */}
+                    <div className="w-full sm:w-1/3 flex flex-col justify-center items-start p-6 sm:p-8 bg-white relative order-2 sm:order-1">
                       <div className="flex items-center gap-2 mb-2">
                         <FaRegSquareFull className="text-xs text-gray-600" />
-                        <span className="text-sm text-gray-600 uppercase tracking-wider font-light">
+                        <span className="text-xs sm:text-sm text-gray-600 uppercase tracking-wider font-light">
                           {caseItem.number}
                         </span>
                       </div>
-                      <div className="flex items-center gap-4">
-                        <h2 className="text-4xl font-extrabold text-strong-gray font-kanit">
+                      <div className="flex items-center gap-2 sm:gap-4">
+                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-strong-gray font-kanit">
                           {caseItem.title}
                         </h2>
-                        <TbExternalLink className="w-6 h-6 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <TbExternalLink className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </div>
                     </div>
                     
-                    {/* Right side - Image (2/3 width) */}
-                    <div className="w-2/3 h-full">
+                    {/* Image */}
+                    <div className="w-full sm:w-2/3 h-48 sm:h-full order-1 sm:order-2">
                       <img 
                         src={caseItem.image}
                         alt={`${caseItem.title} case study`}

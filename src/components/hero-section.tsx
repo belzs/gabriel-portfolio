@@ -80,29 +80,29 @@ export function HeroSection() {
   }
 
   return (
-    <section className="w-full pb-16 pt-32">
-      <div className="max-w-[900px] mx-auto px-6">
-        <div className="flex items-center justify-between gap-20">
+    <section className="w-full pb-8 pt-16 sm:pb-12 sm:pt-24 lg:pb-16 lg:pt-32">
+      <div className="max-w-[900px] mx-auto px-6 sm:px-6">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 sm:gap-12 lg:gap-20">
           {/* Left side - Image */}
           <div 
             ref={imageRef}
-            className={`flex-shrink-0 ${getAnimationClass('image', 0, 'left')}`}
+            className={`flex-shrink-0 mx-auto lg:mx-0 ${getAnimationClass('image', 0, 'left')}`}
           >
-            <div className="border-[19px] border-white shadow-2xl overflow-hidden">
+            <div className="border-[8px] sm:border-[12px] lg:border-[19px] border-white shadow-2xl overflow-hidden mt-10 sm:mt-0">
               <img 
                 src="/gabriel.png" 
                 alt="Gabriel" 
-                className="max-w-[450px] h-[450px] object-cover"
+                className="w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] lg:w-[450px] lg:h-[450px] object-cover"
               />
             </div>
           </div>
 
           {/* Right side - Content */}
-          <div className="flex-1 flex flex-col gap-2">
+          <div className="flex-1 flex flex-col gap-2 text-left">
             {/* Welcome text */}
             <p 
               ref={welcomeRef}
-              className={`text-sm text-gray-700 uppercase tracking-[0.3em] mb-4 ${getAnimationClass('welcome', 200, 'right')}`}
+              className={`text-xs sm:text-sm text-gray-700 uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-2 sm:mb-4 ${getAnimationClass('welcome', 200, 'right')}`}
             >
               {t('welcome', language)}
             </p>
@@ -110,7 +110,7 @@ export function HeroSection() {
             {/* Main title */}
             <h1 
               ref={titleRef}
-              className={`text-5xl font-bold text-strong-gray mb-6 font-kanit ${getAnimationClass('title', 400, 'right')}`}
+              className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-strong-gray mb-4 sm:mb-6 font-kanit ${getAnimationClass('title', 400, 'right')}`}
             >
               {t('heroTitle', language)}
             </h1>
@@ -120,11 +120,11 @@ export function HeroSection() {
               ref={descriptionRef}
               className={getAnimationClass('description', 600, 'right')}
             >
-              <p className="text-xl text-gray-700 w-full max-w-[400px] font-light mb-2 leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-700 w-full max-w-[400px] font-light mb-2 leading-relaxed">
                 {t('heroDescription1', language)}
               </p>
               <p 
-                className="text-xl text-gray-700 max-w-[400px] font-light mb-8 leading-relaxed"
+                className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-[400px] font-light mb-6 sm:mb-8 leading-relaxed"
                 dangerouslySetInnerHTML={{ 
                   __html: t('heroDescription2', language).replace('<strong>', '<span class="font-bold">').replace('</strong>', '</span>').replace('<strong>', '<span class="font-bold">').replace('</strong>', '</span>')
                 }}
@@ -134,7 +134,7 @@ export function HeroSection() {
             {/* Experience boxes */}
             <div 
               ref={experienceBoxesRef}
-              className="flex gap-6"
+              className="flex gap-3 sm:gap-4 lg:gap-6"
             >
               {[
                 { years: '6', skill: 'UX' },
@@ -143,12 +143,12 @@ export function HeroSection() {
               ].map((item, index) => (
                 <div 
                   key={item.skill}
-                  className={`w-full max-w-32 h-28 gap-4 bg-strong-gray text-white px-6 py-4 flex flex-col justify-start items-start text-left ${getBoxAnimationClass(index, 'experience-boxes')}`}
+                  className={`flex-1 min-w-0 h-20 sm:h-24 lg:h-28 gap-2 sm:gap-3 lg:gap-4 bg-strong-gray text-white px-3 sm:px-4 lg:px-6 py-3 sm:py-4 flex flex-col justify-start items-start text-left ${getBoxAnimationClass(index, 'experience-boxes')}`}
                 >
-                  <div className="text-sm mb-1 tracking-wide">
+                  <div className="text-xs sm:text-sm mb-1 tracking-wide">
                     {item.years} {t('years', language)}{item.note || ''}
                   </div>
-                  <div className="text-3xl font-semibold font-kanit tracking-widest">
+                  <div className="text-xl sm:text-2xl lg:text-3xl font-semibold font-kanit tracking-widest">
                     {item.skill}
                   </div>
                 </div>

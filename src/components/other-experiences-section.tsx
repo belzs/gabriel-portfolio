@@ -143,7 +143,7 @@ export function OtherExperiencesSection() {
       className={`${gridClass} cursor-pointer`}
       onClick={() => openModal(experience)}
     >
-      <div className="relative border-[19px] border-white shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group h-full max-h-[400px] bg-gray-100">
+      <div className="relative border-[8px] md:border-[12px] lg:border-[19px] border-white shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group h-full max-h-[250px] md:max-h-[300px] lg:max-h-[400px] bg-gray-100">
         <img 
           src={experience.image}
           alt={experience.title}
@@ -156,8 +156,8 @@ export function OtherExperiencesSection() {
         
         {/* Maximize Icon Overlay */}
         <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-all duration-500">
-          <div className="bg-white/20 backdrop-blur-sm rounded-full p-4 transform scale-75 group-hover:scale-100 transition-all duration-500">
-            <TbArrowsMaximize className="w-8 h-8 text-white" />
+          <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 md:p-3 lg:p-4 transform scale-75 group-hover:scale-100 transition-all duration-500">
+            <TbArrowsMaximize className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 text-white" />
           </div>
         </div>
       </div>
@@ -166,14 +166,14 @@ export function OtherExperiencesSection() {
 
   return (
     <>
-      <section className="w-full py-24 ">
-        <div className="max-w-[900px] mx-auto px-6">
+      <section className="w-full py-12 md:py-16 lg:py-24">
+        <div className="max-w-[900px] mx-auto px-4 md:px-6">
           {/* Title */}
           <div 
             ref={titleRef}
-            className={`mb-16 ${getAnimationClass('title')}`}
+            className={`mb-8 md:mb-12 lg:mb-16 ${getAnimationClass('title')}`}
           >
-            <h2 className="text-5xl uppercase font-extrabold font-kanit text-strong-gray">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl uppercase font-extrabold font-kanit text-strong-gray">
               + OTHER EXPERIENCES
             </h2>
           </div>
@@ -181,24 +181,57 @@ export function OtherExperiencesSection() {
           {/* Grid */}
           <div 
             ref={gridRef}
-            className={`space-y-8 ${getAnimationClass('grid', 400)}`}
+            className={`space-y-4 md:space-y-6 lg:space-y-8 ${getAnimationClass('grid', 400)}`}
           >
-            {/* Line 1: brla.png (horizontal), looli.png (vertical) */}
-            <div className="grid grid-cols-3 gap-6 h-[400px]">
-              {renderGridItem(experiences[0], "col-span-2")}
-              {renderGridItem(experiences[1], "col-span-1")}
+            {/* Mobile: Single column layout */}
+            <div className="md:hidden space-y-4">
+              {experiences.map((experience) => (
+                <div key={experience.id} className="h-[250px]">
+                  {renderGridItem(experience, "w-full")}
+                </div>
+              ))}
             </div>
 
-            {/* Line 2: joorib2c.png (vertical), 0xLP.png (horizontal) */}
-            <div className="grid grid-cols-3 gap-6 h-[400px]">
-              {renderGridItem(experiences[2], "col-span-1")}
-              {renderGridItem(experiences[3], "col-span-2")}
+            {/* Tablet: 2 column layout */}
+            <div className="hidden md:block lg:hidden space-y-6">
+              {/* Line 1: brla, looli */}
+              <div className="grid grid-cols-2 gap-4 h-[300px]">
+                {renderGridItem(experiences[0], "col-span-1")}
+                {renderGridItem(experiences[1], "col-span-1")}
+              </div>
+
+              {/* Line 2: joorib2c, 0xLP */}
+              <div className="grid grid-cols-2 gap-4 h-[300px]">
+                {renderGridItem(experiences[2], "col-span-1")}
+                {renderGridItem(experiences[3], "col-span-1")}
+              </div>
+
+              {/* Line 3: stackOS, zecaHub */}
+              <div className="grid grid-cols-2 gap-4 h-[300px]">
+                {renderGridItem(experiences[4], "col-span-1")}
+                {renderGridItem(experiences[5], "col-span-1")}
+              </div>
             </div>
 
-            {/* Line 3: stackOS.png (horizontal), zecaHub.png (vertical) */}
-            <div className="grid grid-cols-3 gap-6 h-[400px]">
-              {renderGridItem(experiences[4], "col-span-2")}
-              {renderGridItem(experiences[5], "col-span-1")}
+            {/* Desktop: 3 column layout (original) */}
+            <div className="hidden lg:block">
+              {/* Line 1: brla.png (horizontal), looli.png (vertical) */}
+              <div className="grid grid-cols-3 gap-6 h-[400px] mb-8">
+                {renderGridItem(experiences[0], "col-span-2")}
+                {renderGridItem(experiences[1], "col-span-1")}
+              </div>
+
+              {/* Line 2: joorib2c.png (vertical), 0xLP.png (horizontal) */}
+              <div className="grid grid-cols-3 gap-6 h-[400px] mb-8">
+                {renderGridItem(experiences[2], "col-span-1")}
+                {renderGridItem(experiences[3], "col-span-2")}
+              </div>
+
+              {/* Line 3: stackOS.png (horizontal), zecaHub.png (vertical) */}
+              <div className="grid grid-cols-3 gap-6 h-[400px]">
+                {renderGridItem(experiences[4], "col-span-2")}
+                {renderGridItem(experiences[5], "col-span-1")}
+              </div>
             </div>
           </div>
         </div>
@@ -226,17 +259,17 @@ export function OtherExperiencesSection() {
             {/* Close Button */}
             <button
               onClick={closeModal}
-              className={`absolute top-8 right-8 z-10 p-2 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-all duration-300 transform ${
+              className={`absolute top-4 right-4 md:top-6 md:right-6 lg:top-8 lg:right-8 z-10 p-2 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-all duration-300 transform ${
                 isModalOpen ? 'scale-100 opacity-100 rotate-0' : 'scale-75 opacity-0 rotate-45'
               }`}
             >
-              <TbX className="w-6 h-6 text-white" />
+              <TbX className="w-5 h-5 md:w-6 md:h-6 text-white" />
             </button>
 
             {/* Image Container */}
-            <div className="flex-1 flex items-center justify-center p-8">
+            <div className="flex-1 flex items-center justify-center p-4 md:p-6 lg:p-8">
               <div 
-                className={`max-w-4xl max-h-[70vh] border-[19px] border-white shadow-2xl overflow-hidden transition-all duration-600 ease-out transform ${
+                className={`w-full max-w-xs md:max-w-2xl lg:max-w-4xl max-h-[50vh] md:max-h-[60vh] lg:max-h-[70vh] border-[8px] md:border-[12px] lg:border-[19px] border-white shadow-2xl overflow-hidden transition-all duration-600 ease-out transform ${
                   isModalOpen ? 'scale-100 opacity-100 translate-y-0' : 'scale-90 opacity-0 translate-y-8'
                 }`}
                 onClick={(e) => e.stopPropagation()}
@@ -262,14 +295,14 @@ export function OtherExperiencesSection() {
               }`} />
               
               {/* Content */}
-              <div className="relative z-10 p-8 pb-12">
-                <div className="max-w-4xl mx-auto text-center">
-                  <h3 className={`text-4xl font-extrabold text-white mb-6 font-kanit transition-all duration-600 ease-out transform ${
+              <div className="relative z-10 p-4 md:p-6 lg:p-8 pb-8 md:pb-10 lg:pb-12">
+                <div className="max-w-xs md:max-w-2xl lg:max-w-4xl mx-auto text-center">
+                  <h3 className={`text-2xl md:text-3xl lg:text-4xl font-extrabold text-white mb-3 md:mb-4 lg:mb-6 font-kanit transition-all duration-600 ease-out transform ${
                     isModalOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                   }`}>
                     {selectedExperience.title}
                   </h3>
-                  <p className={`text-lg text-gray-200 leading-relaxed font-light max-w-3xl mx-auto transition-all duration-700 ease-out transform ${
+                  <p className={`text-sm md:text-base lg:text-lg text-gray-200 leading-relaxed font-light max-w-sm md:max-w-2xl lg:max-w-3xl mx-auto transition-all duration-700 ease-out transform ${
                     isModalOpen ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
                   }`}>
                     {selectedExperience.description}
