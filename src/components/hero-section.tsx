@@ -88,11 +88,11 @@ export function HeroSection() {
             ref={imageRef}
             className={`flex-shrink-0 mx-auto lg:mx-0 ${getAnimationClass('image', 0, 'left')}`}
           >
-            <div className="border-[8px] sm:border-[12px] lg:border-[19px] border-white shadow-2xl overflow-hidden mt-10 sm:mt-0">
+            <div className="border-[19px] border-white shadow-2xl overflow-hidden">
               <img 
                 src="/gabriel.png" 
                 alt="Gabriel" 
-                className="w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] lg:w-[450px] lg:h-[450px] object-cover"
+                className="max-w-[450px] h-[450px] object-cover"
               />
             </div>
           </div>
@@ -139,14 +139,14 @@ export function HeroSection() {
               {[
                 { years: '6', skill: 'UX' },
                 { years: '6', skill: 'UI' },
-                { years: '2', skill: 'DEV', note: ' (?)' }
+                { years: '2', skill: 'DEV' }
               ].map((item, index) => (
                 <div 
                   key={item.skill}
                   className={`flex-1 min-w-0 h-20 sm:h-24 lg:h-28 gap-2 sm:gap-3 lg:gap-4 bg-strong-gray text-white px-3 sm:px-4 lg:px-6 py-3 sm:py-4 flex flex-col justify-start items-start text-left ${getBoxAnimationClass(index, 'experience-boxes')}`}
                 >
                   <div className="text-xs sm:text-sm mb-1 tracking-wide">
-                    {item.years} {t('years', language)}{item.note || ''}
+                    {item.years} {t('years', language)}
                   </div>
                   <div className="text-xl sm:text-2xl lg:text-3xl font-semibold font-kanit tracking-widest">
                     {item.skill}
