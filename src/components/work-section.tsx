@@ -157,7 +157,7 @@ export function WorkSection() {
               <img 
                 src="/zecaCardBackground.png" 
                 alt="Project background" 
-                className="w-full h-48 md:h-64 lg:max-h-[320px] object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                className="w-full h-48 md:h-64 lg:h-[320px] object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
               />
               
               {/* Logo in the middle */}
@@ -170,7 +170,7 @@ export function WorkSection() {
               </div>
               
               {/* Phone mockup at the bottom */}
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-3/4 group-hover:translate-y-3/5 md:group-hover:translate-y-2/3 lg:group-hover:translate-y-15/20 transition-all duration-500">
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-4/4 group-hover:translate-y-15/20 md:group-hover:translate-y-2/3 lg:group-hover:translate-y-15/20 transition-all duration-500">
                 <img 
                   src="/zecaMockup.png" 
                   alt="Zeca Mobile App" 
@@ -214,7 +214,7 @@ export function WorkSection() {
               <img 
                 src="/aloreCardBackground.png" 
                 alt="Problem solution" 
-                className="w-full h-48 md:h-64 lg:max-h-[320px] object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                className="w-full h-48 md:h-64 lg:h-[320px] object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
               />
               
               {/* Logo in the middle */}
@@ -249,7 +249,7 @@ export function WorkSection() {
               <img 
                 src="/netzCardBackground.png" 
                 alt="Window design" 
-                className="w-full h-48 md:h-64 lg:max-h-[320px] object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                className="w-full h-48 md:h-64 lg:h-[320px] object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
               />
               
               {/* Logo in the middle */}
@@ -286,7 +286,7 @@ export function WorkSection() {
             <img 
               src="/jooriCardBackground.png" 
               alt="Joori background" 
-              className="w-full h-48 md:h-64 lg:h-full lg:max-h-[300px] object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+              className="w-full h-48 md:h-64 lg:h-[300px] object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
             />
             
             {/* Logo in the middle */}
@@ -294,12 +294,12 @@ export function WorkSection() {
               <img 
                 src="/jooriLogo.png" 
                 alt="Joori Logo" 
-                className="w-24 h-24 md:w-28 md:h-28 lg:w-36 lg:h-36 object-contain filter grayscale group-hover:grayscale-0 -translate-y-3 md:-translate-y-4 lg:-translate-y-5 group-hover:-translate-y-12 md:group-hover:-translate-y-16 lg:group-hover:-translate-y-20 transition-all duration-500 z-10"
+                className="w-22 h-22 md:w-28 md:h-28 lg:w-36 lg:h-36 object-contain filter grayscale group-hover:grayscale-0 -translate-y-3 md:-translate-y-4 lg:-translate-y-8 group-hover:-translate-y-12 md:group-hover:-translate-y-16 lg:group-hover:-translate-y-20 transition-all duration-500 z-10"
               />
             </div>
             
             {/* Phone mockup at the bottom */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-4/5 group-hover:translate-y-3/5 md:group-hover:translate-y-2/3 lg:group-hover:translate-y-7/10 transition-all duration-500">
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-5/5 group-hover:translate-y-3/5 md:group-hover:translate-y-2/3 lg:group-hover:translate-y-7/10 transition-all duration-500">
               <img 
                 src="/jooriMockup.png" 
                 alt="Joori Mobile App" 
